@@ -1,3 +1,4 @@
+'use client'
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
@@ -10,14 +11,22 @@ export function Navbar() {
         </Link>
 
         <nav className="hidden md:flex gap-6 text-sm">
-          <Link href="#courses">Courses</Link>
-          <Link href="#pricing">Pricing</Link>
+          <Link href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login">Courses</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="#faq">FAQ</Link>
         </nav>
 
         <div className="flex gap-2">
-          <Button variant="outline">Login</Button>
-          <Button>Apply</Button>
+          <Button 
+            variant="outline"
+            onClick={() => window.location.href = "https://learn.techvision.edu.et/login"}
+        >
+                Login
+          </Button>
+          <Button 
+          onClick={() => window.location.href = "https://learn.techvision.edu.et/batch-application"}>
+            Apply
+        </Button>
         </div>
       </div>
     </header>

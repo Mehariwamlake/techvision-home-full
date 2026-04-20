@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
-import { Footer } from "@/components/ui/footer"
+import { Footer } from "@/components/footer"
 
 export default function Home() {
   return (
@@ -21,7 +21,7 @@ export default function Home() {
         </p>
 
         <div className="flex gap-4 mt-8">
-          <Button size="lg">Start Free Learning</Button>
+          <Button size="lg" >Start Free Learning</Button>
           <Button variant="outline" size="lg">Join Bootcamp</Button>
         </div>
       </section>
