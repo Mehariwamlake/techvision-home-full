@@ -1,188 +1,208 @@
-"use client";
-import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/ui/footer"
 
 export default function Home() {
-
-  const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
-  };
-
-  const stagger = {
-    hidden: {},
-    show: {
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
   return (
-    <main className="bg-gray-950 text-white min-h-screen overflow-hidden">
+    <>
+     <Navbar />
+    
+    <main className="flex flex-col">
 
-      {/* Promo Banner */}
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-center py-2 text-sm font-medium">
-        🚀 Grade 12 National Exam Prep is LIVE — Practice now!
-      </div>
+      {/* HERO */}
+      <section className="min-h-screen flex flex-col items-center justify-center text-center px-6 bg-gradient-to-b from-background to-muted">
+        <h1 className="text-4xl md:text-6xl font-bold max-w-3xl leading-tight">
+          Learn Frontend Development & Build Real Projects
+        </h1>
 
-      {/* Navbar */}
-      <nav className="flex justify-between items-center px-8 py-4 border-b border-gray-800">
-        <img src="/logo-long.png" width={150} height={150}></img>
-        
+        <p className="mt-6 text-lg text-muted-foreground max-w-xl">
+          Start free with HTML, CSS, and JavaScript. Upgrade to our live bootcamp
+          to become job-ready with React & Next.js.
+        </p>
 
-        <div className="space-x-6 hidden md:flex">
-          <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/batches/#login" className="hover:text-blue-400">Batches</a>
-          <a href="https://learn.techvision.edu.et/lms/courses" className="hover:text-blue-400">Courses</a>
-          <a href="https://learn.techvision.edu.et/lms/courses/national-exam-grade-12" className="hover:text-blue-400">Exam Prep</a>
-          <a href="https://learn.techvision.edu.et/lms/job-openings" className="hover:text-blue-400">Job Opportunities</a>
+        <div className="flex gap-4 mt-8">
+          <Button size="lg">Start Free Learning</Button>
+          <Button variant="outline" size="lg">Join Bootcamp</Button>
         </div>
+      </section>
 
-        <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login" className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">
-          Get Started
-        </a>
-      </nav>
+      {/* FREE VS PAID */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Start Free. Go Pro When Ready.
+        </h2>
 
-      {/* Hero Section */}
-      <section className="grid md:grid-cols-2 gap-10 items-center py-20 px-8">
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="p-6 border rounded-2xl">
+            <h3 className="text-xl font-semibold mb-4">Free Courses</h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>✔ HTML & CSS Basics</li>
+              <li>✔ JavaScript Fundamentals</li>
+              <li>✔ Practice exercises</li>
+            </ul>
+            <Button className="mt-6 w-full">Start Free</Button>
+          </div>
 
-        {/* Left Content */}
-        <motion.div
-          variants={fadeUp}
-          initial="hidden"
-          animate="show"
-        >
-          <h2 className="text-4xl md:text-6xl font-bold leading-tight">
-            Ace Your <span className="text-blue-500">Grade 12 Exams</span>
+          <div className="p-6 border rounded-2xl bg-muted">
+            <h3 className="text-xl font-semibold mb-4">
+              Frontend Bootcamp (Paid)
+            </h3>
+            <ul className="space-y-2 text-muted-foreground">
+              <li>✔ 12 Weeks Live Training</li>
+              <li>✔ 4 Classes / Week (2 hrs each)</li>
+              <li>✔ Max 20 Students</li>
+              <li>✔ Real-world projects</li>
+              <li>✔ Instructor-led sessions</li>
+            </ul>
+            <Button className="mt-6 w-full">Join Now</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* BOOTCAMP DETAILS */}
+      <section className="py-20 px-6 bg-muted">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-6">
+            12-Week Frontend Bootcamp
           </h2>
 
-          <p className="mt-6 text-gray-400 text-lg">
-            Practice real national exam questions, track progress, and boost your confidence.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Designed for university students and self-taught developers who want
+            to become job-ready. Learn React, Next.js, and build real-world apps.
           </p>
 
-          <div className="mt-8 flex gap-4">
-            <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login" className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700">
-              Start Practicing
-            </a>
-            <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login" className="border border-gray-700 px-6 py-3 rounded-xl hover:bg-gray-800">
-              Explore programs
-            </a>
+          <div className="grid md:grid-cols-2 gap-6 mt-10">
+            <div className="p-6 border rounded-xl">
+              <h3 className="font-semibold mb-2">Online</h3>
+              <p className="text-2xl font-bold">3,500 ETB / month</p>
+            </div>
+
+            <div className="p-6 border rounded-xl">
+              <h3 className="font-semibold mb-2">In-Person</h3>
+              <p className="text-2xl font-bold">6,000 ETB / month</p>
+            </div>
           </div>
-        </motion.div>
 
-        {/* Right Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7 }}
-          className="relative"
-        >
-          <img
-            src="/home.jpg" // 👉 replace with your image
-            alt="Dashboard preview"
-            className="rounded-2xl shadow-2xl border border-gray-800"
-          />
-
-          {/* Glow Effect */}
-          <div className="absolute -z-10 inset-0 bg-blue-500 blur-3xl opacity-20"></div>
-        </motion.div>
+          <Button size="lg" className="mt-10">
+            Apply for Next Batch
+          </Button>
+        </div>
       </section>
 
-      {/* Exam Prep Section */}
-      <section className="px-8 py-20 bg-gray-900">
-        <motion.h3
-          className="text-3xl font-bold text-center mb-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          🎯 Grade 12 Exam Preparation
-        </motion.h3>
+      {/* WHY TECHVISION */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          Why TechVision LMS?
+        </h2>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-          className="grid md:grid-cols-3 gap-8"
-        >
-          {[
-            {
-              title: "Real Exam Questions",
-              desc: "Practice like the real exam."
-            },
-            {
-              title: "Instant Feedback",
-              desc: "Improve immediately."
-            },
-            {
-              title: "Smart Practice",
-              desc: "Focus on weak areas."
-            }
-          ].map((item, i) => (
-            <motion.div
-              key={i}
-              variants={fadeUp}
-              whileHover={{ scale: 1.05 }}
-              className="bg-gray-800 p-6 rounded-2xl"
-            >
-              <h4 className="text-xl font-semibold mb-3 text-blue-400">
-                {item.title}
-              </h4>
-              <p className="text-gray-400">{item.desc}</p>
-            </motion.div>
-          ))}
-        </motion.div>
+        <div className="grid md:grid-cols-3 gap-8 text-center">
+          <div>
+            <h3 className="font-semibold text-lg mb-2">Real Projects</h3>
+            <p className="text-muted-foreground">
+              Build portfolio-ready applications, not just theory.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-lg mb-2">
+              Instructor-Led Training
+            </h3>
+            <p className="text-muted-foreground">
+              Learn directly from experienced developers.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-lg mb-2">
+              Small Batch Size
+            </h3>
+            <p className="text-muted-foreground">
+              Max 20 students for better support and focus.
+            </p>
+          </div>
+        </div>
       </section>
 
-      {/* Image Section (Social Proof Style) */}
-      <section className="px-8 py-20 text-center">
-        <motion.h3
-          className="text-3xl font-bold mb-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          Learn Like Top Students 📈
-        </motion.h3>
+      {/* TESTIMONIALS */}
+      <section className="py-20 px-6 bg-muted">
+        <h2 className="text-3xl font-bold text-center mb-12">
+          What Students Say
+        </h2>
 
-        <motion.div
-          className="grid md:grid-cols-3 gap-6"
-          variants={stagger}
-          initial="hidden"
-          whileInView="show"
-        >
-          {["/student1.jpg", "/student2.jpg", "/student3.jpg"].map((img, i) => (
-            <motion.img
-              key={i}
-              src={img}
-              variants={fadeUp}
-              className="rounded-2xl h-64 w-full object-cover hover:scale-105 transition"
-            />
-          ))}
-        </motion.div>
+        <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-6">
+          <div className="p-6 border rounded-xl">
+            <p className="text-muted-foreground">
+              “This bootcamp helped me build real projects and understand React deeply.”
+            </p>
+            <p className="mt-4 font-semibold">— Student</p>
+          </div>
+
+          <div className="p-6 border rounded-xl">
+            <p className="text-muted-foreground">
+              “Best learning experience compared to YouTube tutorials.”
+            </p>
+            <p className="mt-4 font-semibold">— Developer</p>
+          </div>
+        </div>
       </section>
 
-      {/* CTA */}
-      <section className="text-center py-20 px-6 bg-gradient-to-r from-blue-600 to-purple-600">
-        <motion.h3
-          className="text-3xl font-bold"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          Don’t wait — exams are coming.
-        </motion.h3>
+      {/* INSTRUCTOR */}
+      <section className="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-3xl font-bold mb-6">
+          Learn From Your Instructor
+        </h2>
 
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          className="mt-6 bg-white text-black px-8 py-3 rounded-xl text-lg"
-          onClick={() => window.location.href = "https://learn.techvision.edu.et/lms/courses/national-exam-grade-12"}
-        >
-          Join Now
-        </motion.button>
+        <p className="text-muted-foreground">
+          Learn directly from an experienced frontend developer building real-world systems.
+        </p>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-800 py-6 text-center text-gray-500">
-        © {new Date().getFullYear()} TechVision LMS
-      </footer>
+      {/* FAQ */}
+      <section className="py-20 px-6 bg-muted">
+        <h2 className="text-3xl font-bold text-center mb-12">FAQ</h2>
+
+        <div className="max-w-3xl mx-auto space-y-6">
+          <div>
+            <h3 className="font-semibold">Do I need prior experience?</h3>
+            <p className="text-muted-foreground">
+              No. You can start with our free courses first.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold">How do I join the bootcamp?</h3>
+            <p className="text-muted-foreground">
+              Click "Apply for Next Batch" and we’ll contact you.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-semibold">Is it live or recorded?</h3>
+            <p className="text-muted-foreground">
+              All bootcamp sessions are live and interactive.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FINAL CTA */}
+      <section className="py-20 px-6 text-center">
+        <h2 className="text-3xl font-bold mb-6">
+          Start Learning Today
+        </h2>
+
+        <p className="text-muted-foreground mb-8">
+          Begin with free courses or join the next frontend bootcamp.
+        </p>
+
+        <div className="flex justify-center gap-4">
+          <Button size="lg">Start Free</Button>
+          <Button size="lg" variant="outline">Join Bootcamp</Button>
+        </div>
+      </section>
 
     </main>
-  );
+    <Footer />
+    </>
+  )
 }
