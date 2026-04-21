@@ -3,8 +3,8 @@ version: "3.8"
 services:
   nextjs-standalone:
     build: .
-    image: ghcr.io/mehariwamlake/lms-nextjs:latest
-    container_name: nextjs-app-container
+    image: ghcr.io/mehariwamlake/Homelms-nextjs:latest
+    container_name: nextjs-app-containers
     deploy:
       replicas: 1
       labels:
@@ -26,7 +26,7 @@ services:
 
     environment:
       NODE_ENV: production
-      PORT: 3000
+      PORT: 3009
 
     networks:
       - dokploy-network
