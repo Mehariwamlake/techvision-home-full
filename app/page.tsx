@@ -1,3 +1,4 @@
+'use client'
 import { Button } from "@/components/ui/button"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
@@ -21,8 +22,14 @@ export default function Home() {
         </p>
 
         <div className="flex gap-4 mt-8">
-          <Button size="lg" >Start Free Learning</Button>
-          <Button variant="outline" size="lg">Join Bootcamp</Button>
+          <Button 
+            size="lg"
+            onClick={() => window.location.href = "https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login"}
+           >Start Free Learning</Button>
+          <Button 
+            variant="outline" size="lg"
+            onClick={() => window.location.href = "https://learn.techvision.edu.et/batch-application"}
+            >Join Bootcamp</Button>
         </div>
       </section>
 
@@ -40,7 +47,10 @@ export default function Home() {
               <li>✔ JavaScript Fundamentals</li>
               <li>✔ Practice exercises</li>
             </ul>
-            <Button className="mt-6 w-full">Start Free</Button>
+            <Button 
+              className="mt-6 w-full"
+              onClick={() => window.location.href = "https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login"}
+              >Start Free</Button>
           </div>
 
           <div className="p-6 border rounded-2xl bg-muted">
@@ -54,7 +64,12 @@ export default function Home() {
               <li>✔ Real-world projects</li>
               <li>✔ Instructor-led sessions</li>
             </ul>
-            <Button className="mt-6 w-full">Join Now</Button>
+            <Button 
+              className="mt-6 w-full"
+              onClick={() => window.location.href = "https://learn.techvision.edu.et/batch-application"}
+            >
+              Join Now
+            </Button>
           </div>
         </div>
       </section>
@@ -83,7 +98,10 @@ export default function Home() {
             </div>
           </div>
 
-          <Button size="lg" className="mt-10">
+          <Button 
+            size="lg" className="mt-10"
+            onClick={() => window.location.href = "https://learn.techvision.edu.et/batch-application"}
+            >
             Apply for Next Batch
           </Button>
         </div>
@@ -196,8 +214,13 @@ export default function Home() {
         </p>
 
         <div className="flex justify-center gap-4">
-          <Button size="lg">Start Free</Button>
-          <Button size="lg" variant="outline">Join Bootcamp</Button>
+          <Button 
+            size="lg"
+            onClick={() => window.location.href = "https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login"}
+            >Start Free</Button>
+          <Button 
+          onClick={() => window.location.href = "https://learn.techvision.edu.et/batch-application"}
+          size="lg" variant="outline">Join Bootcamp</Button>
         </div>
       </section>
 
