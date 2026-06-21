@@ -8,8 +8,8 @@ import { Menu, X } from 'lucide-react'
 const navLinks = [
   { label: 'Courses', href: 'https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Success Stories', href: '#testimonials' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Success Stories', href: '/#testimonials' },
+  { label: 'FAQ', href: '/#faq' },
 ]
 
 export function Navbar() {
