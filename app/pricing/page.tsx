@@ -7,7 +7,7 @@ export default function PricingPage() {
     <>
       <Navbar />
 
-      <main className="min-h-screen  text-[#DDE7E1] pt-28 pb-24 px-6">
+      <main className="min-h-screen  text-[#DDE7E1] pt-28 pb-24 px-6 font-hanken">
         {/* HEADER */}
         <div className="text-center mb-20 max-w-2xl mx-auto">
           <span className="inline-block text-xs font-semibold tracking-widest uppercase text-[#00CD74]   px-4 py-1.5 mb-4 font-jetbrains">
@@ -197,7 +197,7 @@ export default function PricingPage() {
 
         {/* FINAL CTA */}
 
-        <div className="mt-24 text-center max-w-xl mx-auto">
+        <div className="mt-24 text-center max-w-xl mx-auto ">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Become a Frontend Developer?
           </h2>
