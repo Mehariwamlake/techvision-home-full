@@ -67,9 +67,9 @@ export function Navbar() {
           </Link>
           <Link
             href="https://learn.techvision.edu.et/batch-application"
-            className="text-sm font-bold bg-gradient-to-r from-[#00C853] to-[#00A844] text-black px-5 py-2 rounded-xl shadow-[0_0_24px_rgba(0,200,83,0.25)] hover:shadow-[0_0_36px_rgba(0,200,83,0.5)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+            className="text-sm font-bold  font-jetbrains text-black px-5 py-2  bg-[#00CD74]  hover:shadow-[0_0_36px_rgba(0,200,83,0.5)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
           >
-            Apply Now
+            APPLY NOW
           </Link>
         </div>
 

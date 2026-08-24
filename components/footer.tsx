@@ -127,7 +127,7 @@ export function Footer() {
               href="/"
               className="group flex items-center gap-4"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition-all group-hover:border-[#00C853]/50 group-hover:bg-[#00C853]/10">
+              <div className="flex h-12 w-12 items-center justify-center  transition-all group-hover:border-[#00C853]/50 group-hover:bg-[#00C853]/10">
                 <Image
                   src="/logo.svg"
                   alt="TechVision"
@@ -136,20 +136,23 @@ export function Footer() {
                 />
               </div>
 
-              <div>
+              <div className="font-hanken">
                 <h3 className="text-xl font-black text-white">
                   TechVision
                 </h3>
-                <p className="text-xs text-[#00C853]">
-                  Frontend Engineering Bootcamp
+                <p className="text-xs  text-[#00CD74] font-jetbrains">
+                  FRONTEND ENGINEERING BOOTCAMP
                 </p>
               </div>
             </Link>
 
-            <p className="mt-6 max-w-sm leading-relaxed text-[#9FB3A8]">
-              Ethiopia's leading frontend engineering bootcamp helping
-              students build real-world skills, create portfolio projects,
-              and launch successful careers in technology.
+            <p className="mt-6 max-w-sm leading-relaxed  text-[#9FB3A8] font-jetbrains text-sm">
+              ETHIOPIA'S LEADING FRONTEND
+              ENGINEERING BOOTCAMP HELPING
+              STUDENTS BUILD REAL-WORLD SKILLS, 
+              CREATE PORTFOLIO PROJECTS, 
+              AND LAUNCH SUCCESSFUL CAREERS IN 
+              TECHNOLOGY.
             </p>
 
             <div className="mt-8 space-y-4 text-sm">
