@@ -1,46 +1,57 @@
-'use client'
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
-import { Menu, X } from 'lucide-react'
-
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 const navLinks = [
-  { label: 'Courses', href: 'https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login' },
-  { label: 'Pricing', href: '/pricing' },
-  { label: 'Success Stories', href: '/#testimonials' },
-  { label: 'FAQ', href: '/#faq' },
-]
+  { label: "Home", href: "/" },
+  {
+    label: "Courses",
+    href: "https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login",
+  },
+  { label: "Stories", href: "/#testimonials" },
+  { label: "Pricing", href: "/pricing" },
+];
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [mobileOpen, setMobileOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={` bg-[#060A08] fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#050B08]/75 backdrop-blur-xl border-b border-[#00C853]/25 shadow-[0_4px_40px_rgba(0,200,83,0.12)]'
-          : 'bg-transparent border-b border-transparent'
+          ? "backdrop-blur-xl border-b border-[#00C853]/25 shadow-[0_4px_40px_rgba(0,200,83,0.12)]"
+          : "border-b border-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
-          <div className="relative">
-            <div className="absolute inset-0 bg-[#00C853] blur-[12px] opacity-0 group-hover:opacity-40 transition-opacity duration-300 rounded-full" />
-            <Image src="/logo.svg" alt="TechVision" width={34} height={34} priority className="relative z-10" />
-          </div>
-          <span className="font-bold text-white text-lg tracking-tight hidden sm:block">TechVision</span>
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 flex-shrink-0 group"
+        >
+          <Image
+            src="/logo.svg"
+            alt="TechVision Logo"
+            width={32}
+            height={32}
+            priority
+            className="w-auto h-7 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="font-extrabold  text-[#2DB266] text-xl tracking-wider uppercase">
+            TECHVISION
+          </span>
         </Link>
 
         {/* Center Nav */}
@@ -59,12 +70,6 @@ export function Navbar() {
 
         {/* CTAs */}
         <div className="hidden md:flex items-center gap-3.5">
-          <Link
-            href="https://learn.techvision.edu.et/login"
-            className="text-sm font-medium text-[#DDE7E1] hover:text-white transition-colors px-4 py-2 rounded-lg hover:bg-white/5"
-          >
-            Login
-          </Link>
           <Link
             href="https://learn.techvision.edu.et/batch-application"
             className="text-sm font-bold bg-gradient-to-r from-[#00C853] to-[#00A844] text-black px-5 py-2 rounded-xl shadow-[0_0_24px_rgba(0,200,83,0.25)] hover:shadow-[0_0_36px_rgba(0,200,83,0.5)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
@@ -88,7 +93,7 @@ export function Navbar() {
         {mobileOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
+            animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
             className="md:hidden bg-[#08110D]/95 backdrop-blur-3xl border-t border-[#00C853]/15 overflow-hidden"
@@ -106,12 +111,6 @@ export function Navbar() {
               ))}
               <div className="flex flex-col gap-3 mt-5">
                 <Link
-                  href="https://learn.techvision.edu.et/login"
-                  className="text-center text-sm font-medium text-[#DDE7E1] py-3 border border-white/10 rounded-xl hover:bg-white/5 transition-colors"
-                >
-                  Login
-                </Link>
-                <Link
                   href="https://learn.techvision.edu.et/batch-application"
                   className="text-center text-sm font-bold bg-gradient-to-r from-[#00C853] to-[#00A844] text-black py-3 rounded-xl shadow-[0_0_20px_rgba(0,200,83,0.2)]"
                 >
@@ -123,5 +122,5 @@ export function Navbar() {
         )}
       </AnimatePresence>
     </motion.header>
-  )
+  );
 }
