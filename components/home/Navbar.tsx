@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 const navLinks = [
   { label: "Home", href: "/" },
   {
@@ -36,8 +37,19 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0">
-          <span className="font-extrabold mx-auto text-[#2DB266] text-xl tracking-wider uppercase">
+        <Link
+          href="/"
+          className="flex items-center gap-2.5 flex-shrink-0 group"
+        >
+          <Image
+            src="/logo.svg"
+            alt="TechVision Logo"
+            width={32}
+            height={32}
+            priority
+            className="w-auto h-7 object-contain transition-transform duration-300 group-hover:scale-105"
+          />
+          <span className="font-extrabold  text-[#2DB266] text-xl tracking-wider uppercase">
             TECHVISION
           </span>
         </Link>
