@@ -27,7 +27,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Techvision",
   description:
-    "techvision is world leading online learning platform for grade 12 students. We provide real exam questions, instant feedback, and smart practice to help you ace your exams.",
+    "Techvision is a leading online learning platform providing real exam questions, instant feedback, and smart practice to help you ace your exams.",
 };
 
 export default function RootLayout({
@@ -41,7 +41,9 @@ export default function RootLayout({
       className={`${geistSans.variable} ${jetbrainsMono.variable} ${geistMono.variable}
     ${hankenGrotesk.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-sans bg-[#060A08] text-white">
+        {children}
+      </body>
     </html>
   );
 }
