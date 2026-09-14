@@ -79,22 +79,22 @@ export function Footer() {
     <footer className="relative overflow-hidden bg-[#020705] border-t border-white/5">
       {/* Background Effects */}
       <div className="absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-[#00C853]/10 blur-[140px]" />
+        <div className="absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full " />
         <div className="absolute bottom-0 left-0 h-[300px] w-[300px] rounded-full bg-[#00C853]/5 blur-[120px]" />
         <div className="absolute bottom-0 right-0 h-[300px] w-[300px] rounded-full bg-emerald-500/5 blur-[120px]" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 ">
         {/* CTA Section */}
-        <div className="py-16">
-          <div className="rounded-3xl border border-white/10 bg-white/[0.03] backdrop-blur-xl p-8 md:p-12">
+        <div className="py-16 font-hanken">
+          <div className="rounded-3xl border border-white/10  p-8 md:p-12">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <span className="mb-4 inline-flex rounded-full border border-[#00C853]/20 bg-[#00C853]/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-[#00C853]">
+                <span className="mb-4 inline-flex  border border-[#00C853]/20 bg-[#00C853]/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-[#00CD74]">
                   Join TechVision
                 </span>
 
-                <h2 className="mt-4 max-w-2xl text-3xl font-black text-white md:text-4xl">
+                <h2 className="mt-4 max-w-2xl text-3xl font-black text-white md:text-4xl font-hanken">
                   Start your software engineering journey today.
                 </h2>
 
@@ -107,9 +107,9 @@ export function Footer() {
               <Link
                 href="https://learn.techvision.edu.et/batch-application"
                 target="_blank"
-                className="group inline-flex items-center justify-center gap-2 rounded-xl bg-[#00C853] px-6 py-4 font-semibold text-black transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,200,83,0.35)]"
+                className=" font-jetbrains group inline-flex items-center justify-center gap-2  bg-[#00CD74] px-6 py-4 font-bold text-black transition-all hover:scale-105 hover:shadow-[0_0_40px_rgba(0,200,83,0.35)]"
               >
-                Apply Now
+                APPLY NOW
                 <ArrowRight
                   size={18}
                   className="transition-transform group-hover:translate-x-1"
@@ -127,7 +127,7 @@ export function Footer() {
               href="/"
               className="group flex items-center gap-4"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/5 transition-all group-hover:border-[#00C853]/50 group-hover:bg-[#00C853]/10">
+              <div className="flex h-12 w-12 items-center justify-center  transition-all group-hover:border-[#00C853]/50 group-hover:bg-[#00C853]/10">
                 <Image
                   src="/logo.svg"
                   alt="TechVision"
@@ -136,20 +136,23 @@ export function Footer() {
                 />
               </div>
 
-              <div>
+              <div className="font-hanken">
                 <h3 className="text-xl font-black text-white">
                   TechVision
                 </h3>
-                <p className="text-xs text-[#00C853]">
-                  Frontend Engineering Bootcamp
+                <p className="text-xs  text-[#00CD74] font-jetbrains">
+                  FRONTEND ENGINEERING BOOTCAMP
                 </p>
               </div>
             </Link>
 
-            <p className="mt-6 max-w-sm leading-relaxed text-[#9FB3A8]">
-              Ethiopia's leading frontend engineering bootcamp helping
-              students build real-world skills, create portfolio projects,
-              and launch successful careers in technology.
+            <p className="mt-6 max-w-sm leading-relaxed  text-[#9FB3A8] font-jetbrains text-sm">
+              ETHIOPIA'S LEADING FRONTEND
+              ENGINEERING BOOTCAMP HELPING
+              STUDENTS BUILD REAL-WORLD SKILLS, 
+              CREATE PORTFOLIO PROJECTS, 
+              AND LAUNCH SUCCESSFUL CAREERS IN 
+              TECHNOLOGY.
             </p>
 
             <div className="mt-8 space-y-4 text-sm">

@@ -127,7 +127,7 @@ export function Faq() {
                     }}
                     className="overflow-hidden"
                   >
-                    <p className="px-5 pb-4 pt-0 sm:px-6 sm:pb-5 text-[#8FA99A] text-[13px] sm:text-[14px] leading-relaxed max-w-2xl">
+                    <p className="px-5 pb-4 pt-0 sm:px-6 sm:pb-5 text-[#afb3b0] text-[13px] sm:text-[14px] leading-relaxed max-w-2xl">
                       {faq.a}
                     </p>
                   </motion.div>
