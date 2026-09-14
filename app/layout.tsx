@@ -14,7 +14,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Techvision",
-  description: "techvision is world leading online learning platform for grade 12 students. We provide real exam questions, instant feedback, and smart practice to help you ace your exams.",
+  description:
+    "Techvision is a leading online learning platform providing real exam questions, instant feedback, and smart practice to help you ace your exams.",
 };
 
 export default function RootLayout({
@@ -23,11 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html 
+    <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-sans bg-[#060A08] text-white">
+        {children}
+      </body>
     </html>
   );
 }
