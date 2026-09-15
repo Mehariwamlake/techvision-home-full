@@ -1,126 +1,192 @@
-"use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import Image from "next/image";
-const navLinks = [
-  { label: "Home", href: "/" },
-  {
-    label: "Courses",
-    href: "https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login",
-  },
-  { label: "Stories", href: "/#testimonials" },
-  { label: "Pricing", href: "/pricing" },
-];
+'use client'
 
-export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
+import Link from 'next/link'
+import { useRef, useState } from 'react'
+import { ChevronDown, Menu, X } from 'lucide-react'
+import { ThemeMenu } from '@/components/ThemeMenu'
+import { BrandLogo } from '@/components/BrandLogo'
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
+  const [open, setOpen] = useState(false)
+  const [mobile, setMobile] = useState(false)
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const keepCoursesOpen = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    setOpen(true)
+  }
+
+  const closeCoursesSoon = () => {
+    if (closeTimer.current) clearTimeout(closeTimer.current)
+    closeTimer.current = setTimeout(() => setOpen(false), 160)
+  }
+
+  const navLink =
+    'tv-nav-link text-[13px] font-medium transition-colors duration-200'
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={` bg-[#060A08] fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "backdrop-blur-xl border-b border-[#00C853]/25 shadow-[0_4px_40px_rgba(0,200,83,0.12)]"
-          : "border-b border-transparent"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 flex-shrink-0 group"
-        >
-          <Image
-            src="/logo.svg"
-            alt="TechVision Logo"
-            width={32}
-            height={32}
-            priority
-            className="w-auto h-7 object-contain transition-transform duration-300 group-hover:scale-105"
-          />
-          <span className="font-extrabold  text-[#2DB266] text-xl tracking-wider uppercase">
-            TECHVISION
-          </span>
-        </Link>
+    <header className="tv-navbar sticky top-0 z-50 backdrop-blur">
+      <div className="mx-auto flex h-[62px] max-w-7xl items-center justify-between px-5 sm:px-7">
 
-        {/* Center Nav */}
-        <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-sm font-medium text-[#9FB3A8] hover:text-white transition-colors duration-200 relative group"
+        <BrandLogo className="h-7 w-auto" />
+
+        <nav className="hidden items-center gap-7 md:flex">
+          <Link href="/" className={navLink}>
+            Home
+          </Link>
+
+          {!hideCourses && (
+            <div
+              className="relative flex h-[62px] items-center"
+              onMouseEnter={keepCoursesOpen}
+              onMouseLeave={closeCoursesSoon}
+              onFocus={keepCoursesOpen}
+              onBlur={closeCoursesSoon}
             >
-              {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-px bg-gradient-to-r from-[#00C853] to-[#B2FF59] group-hover:w-full transition-all duration-300" />
-            </Link>
-          ))}
+              <button
+                type="button"
+                onClick={() => setOpen((value) => !value)}
+                className={`${navLink} flex items-center gap-1`}
+                aria-haspopup="menu"
+                aria-expanded={open}
+              >
+                Courses
+
+                <ChevronDown
+                  size={13}
+                  className={`transition-transform duration-200 ${
+                    open ? 'rotate-180' : ''
+                  }`}
+                />
+              </button>
+
+              {open && (
+                <div className="absolute left-1/2 top-full w-60 -translate-x-1/2 pt-2">
+                  <div className="tv-course-dropdown overflow-hidden rounded-xl border p-2 shadow-[0_14px_35px_rgba(18,40,29,.12)]">
+                    <Link
+                      href="/courses"
+                      onClick={() => setOpen(false)}
+                      className="tv-dropdown-link block rounded-lg px-3 py-2.5 text-sm transition-colors"
+                    >
+                      Front-End Bootcamp
+                    </Link>
+
+                    <Link
+                      href="/courses#course-offerings"
+                      onClick={() => setOpen(false)}
+                      className="tv-dropdown-link block rounded-lg px-3 py-2.5 text-sm transition-colors"
+                    >
+                      Learning Paths
+                    </Link>
+
+                    <Link
+                      href="/stories"
+                      onClick={() => setOpen(false)}
+                      className="tv-dropdown-link block rounded-lg px-3 py-2.5 text-sm transition-colors"
+                    >
+                      Student Stories
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          <Link href="/stories" className={navLink}>
+            Stories
+          </Link>
+
+          <Link href="/pricing" className={navLink}>
+            Pricing
+          </Link>
         </nav>
 
-        {/* CTAs */}
-        <div className="hidden md:flex items-center gap-3.5">
+        <div className="hidden items-center gap-3 md:flex">
+          <ThemeMenu compact />
+
+          <a href="https://learn.techvision.edu.et" className={navLink}>
+            Login
+          </a>
+
           <Link
-            href="https://learn.techvision.edu.et/batch-application"
-            className="text-sm font-bold  font-jetbrains text-black px-5 py-2  bg-[#00CD74]  hover:shadow-[0_0_36px_rgba(0,200,83,0.5)] transition-all duration-300 hover:scale-[1.03] active:scale-[0.98]"
+            href="/apply"
+            className="rounded-md bg-[#00d38d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[.11em] text-[#002333] transition hover:bg-[#00bf80]"
           >
-            APPLY NOW
+            Apply Now
           </Link>
         </div>
 
-        {/* Mobile toggle */}
         <button
-          className="md:hidden text-[#9FB3A8] hover:text-white transition-colors p-2"
-          onClick={() => setMobileOpen(!mobileOpen)}
+          type="button"
+          onClick={() => setMobile((value) => !value)}
+          className="tv-mobile-menu-button md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={mobile}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobile ? <X size={21} /> : <Menu size={21} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="md:hidden bg-[#08110D]/95 backdrop-blur-3xl border-t border-[#00C853]/15 overflow-hidden"
-          >
-            <div className="flex flex-col gap-1 px-6 py-5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-[#DDE7E1] py-3.5 text-sm font-medium border-b border-white/5 last:border-0 hover:text-[#00C853] transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="flex flex-col gap-3 mt-5">
-                <Link
-                  href="https://learn.techvision.edu.et/batch-application"
-                  className="text-center text-sm font-bold bg-gradient-to-r from-[#00C853] to-[#00A844] text-black py-3 rounded-xl shadow-[0_0_20px_rgba(0,200,83,0.2)]"
-                >
-                  Apply Now
-                </Link>
-              </div>
+      {mobile && (
+        <div className="tv-mobile-nav border-t px-5 py-4 md:hidden">
+          <div className="flex flex-col gap-3 text-sm">
+            <Link
+              href="/"
+              className="tv-nav-link"
+              onClick={() => setMobile(false)}
+            >
+              Home
+            </Link>
+
+            {!hideCourses && (
+              <Link
+                href="/courses"
+                className="tv-nav-link"
+                onClick={() => setMobile(false)}
+              >
+                Courses
+              </Link>
+            )}
+
+            <Link
+              href="/stories"
+              className="tv-nav-link"
+              onClick={() => setMobile(false)}
+            >
+              Student Stories
+            </Link>
+
+            <Link
+              href="/pricing"
+              className="tv-nav-link"
+              onClick={() => setMobile(false)}
+            >
+              Pricing
+            </Link>
+
+            <div className="tv-mobile-theme-row flex items-center justify-between border-y py-3">
+              <span>Theme</span>
+              <ThemeMenu />
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
-  );
+
+            <Link
+              href="/login"
+              className="tv-nav-link"
+              onClick={() => setMobile(false)}
+            >
+              Login
+            </Link>
+
+            <Link
+              href="/apply"
+              onClick={() => setMobile(false)}
+              className="w-fit rounded-md bg-[#00d38d] px-5 py-2.5 font-bold text-[#002333]"
+            >
+              Apply Now
+            </Link>
+          </div>
+        </div>
+      )}
+    </header>
+  )
 }
