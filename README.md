@@ -1,48 +1,49 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TechVision
 
-## Getting Started
+TechVision is a responsive learning platform frontend built with Next.js 16, React 19, Tailwind CSS 4, Framer Motion, and Lucide React.
 
-First, run the development server:
+The project includes public learning pages, student authentication flows, an application process, success stories, pricing, theme support, and a student dashboard prototype.
 
-```bash
+## Run Locally
+
+\`\`\`bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+\`\`\`
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Then open:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+http://localhost:3009
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Main Routes
 
-## Learn More
+- /
+- /courses
+- /stories
+- /pricing
+- /login
+- /signup
+- /apply
+- /dashboard
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Responsive landing page
+- Course and learning path pages
+- Student success stories
+- Pricing and plan comparison
+- Login and signup interfaces
+- Multi-step application flow
+- Student dashboard prototype
+- Light, Dark, and System themes
+- Responsive navigation
+- TechVision brand integration
+- UI animations and loading states
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Status
 
-## Deploy on Vercel
+The frontend and major user flows are implemented.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Authentication, LMS functionality, course progress, application data, and profile data are currently frontend prototypes and are not connected to a production backend or database.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-echo "# techvision_home" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Mehariwamlake/techvision_home.git
-git push -u origin main# techvision_home
-# techvision_home
-# techvision-home1
-# techvision-home1
+See FINAL_MERGE_NOTES.md for integration details and team contributions.
