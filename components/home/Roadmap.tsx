@@ -16,7 +16,7 @@ export function Roadmap() {
   const isInView = useInView(ref, { once: true, margin: '-40px' })
 
   return (
-    <section ref={ref} className="tv-roadmap relative overflow-hidden px-5 pb-20 pt-28 sm:px-8 lg:pb-24 lg:pt-32">
+    <section ref={ref} className="tv-roadmap relative overflow-hidden px-5 pb-20 pt-28 sm:px-8 lg:pb-24 lg:pt-32 bg-[#ffffff] dark:bg-[#1b2721]">
       <motion.div className="relative z-10 mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,7 +29,7 @@ export function Roadmap() {
             Curriculum
             <span className="h-px w-9" />
           </div>
-          <h2 className="tv-roadmap-title text-4xl font-black leading-tight sm:text-5xl lg:text-6xl">
+          <h2 className="tv-roadmap-title text-4xl font-black leading-tight sm:text-5xl lg:text-6xl dark:text-[#f2f7f4]">
             Your 12-Week <span>Roadmap</span>
           </h2>
           <p className="tv-roadmap-intro mx-auto mt-5 max-w-2xl text-sm leading-relaxed sm:text-base">
@@ -61,7 +61,7 @@ export function Roadmap() {
                     {i + 1}
                   </div>
                 </div>
-                <div className="tv-roadmap-card rounded-2xl border p-4 transition-all duration-200">
+                <div className="tv-roadmap-card  border p-4 transition-all duration-200">
                   <span className="tv-roadmap-week mb-1.5 block text-[11px] font-bold uppercase tracking-[0.1em]">{step.weeks}</span>
                   <h3 className="tv-roadmap-step-title mb-2 text-base font-black">{step.title}</h3>
                   <p className="tv-roadmap-description text-[13px] leading-relaxed">{step.description}</p>

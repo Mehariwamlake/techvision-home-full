@@ -3,56 +3,9 @@ import { TechStackClient } from './TechStackClient'
 
 const BASE_URL = 'https://learn.techvision.edu.et'
 
-type Batch = {
-  name: string
-  start_date: string
-  end_date?: string | null
-  description?: string | null
-}
-
-async function getUpcomingBatches(): Promise<Batch[]> {
-  const today = new Date().toISOString().split('T')[0]
-
-  const batchParams = new URLSearchParams({
-    filters: JSON.stringify([
-      ['published', '=', 1],
-      ['start_date', '>=', today],
-    ]),
-    fields: JSON.stringify([
-      'name',
-      'start_date',
-      'end_date',
-      'description',
-    ]),
-    order_by: 'start_date asc',
-  })
-
-  const response = await fetch(
-    `${BASE_URL}/api/resource/LMS%20Batch?${batchParams}`,
-    {
-      headers: {
-        Authorization: `token ${process.env.FRAPPE_API_KEY}:${process.env.FRAPPE_API_SECRET}`,
-      },
-      next: { revalidate: 60 },
-    }
-  )
-
-  if (!response.ok) {
-    console.warn(
-      'Failed to fetch upcoming batches:',
-      response.status,
-      await response.text()
-    )
-    return []
-  }
-
-  const data = await response.json()
-  return data?.data ?? []
-}
-
 async function getCourseNames(): Promise<string[]> {
   const courseParams = new URLSearchParams({
-    filters: JSON.stringify([['published', '=', 1]]),
+    filters: JSON.stringify([['published', '=', 1],]),
     fields: JSON.stringify(['name']),
   })
 
@@ -64,7 +17,7 @@ async function getCourseNames(): Promise<string[]> {
   })
 
   if (!res.ok) {
-    console.warn('Failed to fetch course names:', res.status, await res.text())
+    console.error('Failed to fetch course names:', res.status, await res.text())
     return []
   }
 
@@ -84,7 +37,7 @@ async function getCourseDetail(name: string): Promise<any | null> {
   )
 
   if (!res.ok) {
-    console.warn(`Failed to fetch course "${name}":`, res.status, await res.text())
+    console.error(`Failed to fetch course "${name}":`, res.status, await res.text())
     return null
   }
 
@@ -105,7 +58,7 @@ async function getUserFullName(email: string): Promise<string> {
   )
 
   if (!res.ok) {
-    console.warn(`Failed to fetch user "${email}":`, res.status)
+    console.error(`Failed to fetch user "${email}":`, res.status)
     return email // fallback to email if lookup fails
   }
 
@@ -114,10 +67,7 @@ async function getUserFullName(email: string): Promise<string> {
 }
 
 async function getCourses() {
-  const [names, batches] = await Promise.all([
-    getCourseNames(),
-    getUpcomingBatches(),
-  ])
+  const names = await getCourseNames()
   const courses = await Promise.all(names.map((name) => getCourseDetail(name)))
   const validCourses = courses.filter(Boolean)
 
@@ -150,9 +100,6 @@ async function getCourses() {
       instructor: i.instructor,
       full_name: nameMap.get(i.instructor) || i.instructor,
     })),
-    upcomingBatches: batches.filter(
-        (batch) => batch.name === course.name
-      ),
   }))
 }
 

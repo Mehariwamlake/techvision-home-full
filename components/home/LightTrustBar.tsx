@@ -18,15 +18,15 @@ const marqueeItems = [...universities, ...universities]
 
 export function LightTrustBar() {
   return (
-    <section className="overflow-hidden border-y border-[#e3e9e5] bg-[#f7faf8] py-12">
+    <section className="overflow-hidden border-y border-[#ffff] bg-[#fffff] py-12">
       <div className="mb-8 px-6 text-center">
         <p className="tv-mono text-xs font-semibold uppercase tracking-[.18em] text-[#00d38d]">
           Trusted by students from
         </p>
       </div>
       <div className="relative overflow-hidden">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#f7faf8] to-transparent sm:w-28" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#f7faf8] to-transparent sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16  sm:w-28" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16  sm:w-28" />
         <motion.div
           className="flex w-max gap-4 px-4"
           animate={{ x: ['0%', '-50%'] }}
