@@ -22,11 +22,11 @@ export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
   }
 
   const navLink =
-    'tv-nav-link text-[13px] font-medium transition-colors duration-200'
+    'tv-nav-link text-[15px] font-medium transition-colors duration-200'
 
   return (
     <header className="tv-navbar sticky top-0 z-50 backdrop-blur">
-      <div className="mx-auto flex h-[62px] max-w-7xl items-center justify-between px-5 sm:px-7">
+      <div className="mx-auto flex h-[62px] max-w-7xl items-center justify-between px-5 sm:px-7 ">
 
         <BrandLogo className="h-7 w-auto" />
 
@@ -35,62 +35,9 @@ export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
             Home
           </Link>
 
-          {!hideCourses && (
-            <div
-              className="relative flex h-[62px] items-center"
-              onMouseEnter={keepCoursesOpen}
-              onMouseLeave={closeCoursesSoon}
-              onFocus={keepCoursesOpen}
-              onBlur={closeCoursesSoon}
-            >
-              <button
-                type="button"
-                onClick={() => setOpen((value) => !value)}
-                className={`${navLink} flex items-center gap-1`}
-                aria-haspopup="menu"
-                aria-expanded={open}
-              >
-                Courses
-
-                <ChevronDown
-                  size={13}
-                  className={`transition-transform duration-200 ${
-                    open ? 'rotate-180' : ''
-                  }`}
-                />
-              </button>
-
-              {open && (
-                <div className="absolute left-1/2 top-full w-60 -translate-x-1/2 pt-2">
-                  <div className="tv-course-dropdown overflow-hidden rounded-xl border p-2 shadow-[0_14px_35px_rgba(18,40,29,.12)]">
-                    <Link
-                      href="/courses"
-                      onClick={() => setOpen(false)}
-                      className="tv-dropdown-link block rounded-lg px-3 py-2.5 text-sm transition-colors"
-                    >
-                      Front-End Bootcamp
-                    </Link>
-
-                    <Link
-                      href="/courses#course-offerings"
-                      onClick={() => setOpen(false)}
-                      className="tv-dropdown-link block rounded-lg px-3 py-2.5 text-sm transition-colors"
-                    >
-                      Learning Paths
-                    </Link>
-
-                    <Link
-                      href="/stories"
-                      onClick={() => setOpen(false)}
-                      className="tv-dropdown-link block rounded-lg px-3 py-2.5 text-sm transition-colors"
-                    >
-                      Student Stories
-                    </Link>
-                  </div>
-                </div>
-              )}
-            </div>
-          )}
+          <Link href="/courses" className={navLink}>
+            Courses
+          </Link>
 
           <Link href="/stories" className={navLink}>
             Stories
@@ -99,18 +46,21 @@ export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
           <Link href="/pricing" className={navLink}>
             Pricing
           </Link>
+          <Link href="/contest" className={navLink}>
+            Contest
+          </Link>
+     
         </nav>
-
         <div className="hidden items-center gap-3 md:flex">
           <ThemeMenu compact />
 
-          <a href="https://learn.techvision.edu.et" className={navLink}>
+          <a href="https://learn.techvision.edu.et/login" className={navLink}>
             Login
           </a>
 
           <Link
-            href="/apply"
-            className="rounded-md bg-[#00d38d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[.11em] text-[#002333] transition hover:bg-[#00bf80]"
+            href="https://learn.techvision.edu.et/batch-application/new"
+            className=" bg-[#00d38d] px-5 py-2.5 text-[11px] font-bold uppercase tracking-[.11em] text-[#002333] transition hover:bg-[#00bf80]"
           >
             Apply Now
           </Link>
@@ -163,6 +113,13 @@ export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
             >
               Pricing
             </Link>
+            <Link
+              href="/pricing"
+              className="tv-nav-link"
+              onClick={() => setMobile(false)}
+            >
+              Contest
+            </Link>
 
             <div className="tv-mobile-theme-row flex items-center justify-between border-y py-3">
               <span>Theme</span>
@@ -170,7 +127,7 @@ export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
             </div>
 
             <Link
-              href="/login"
+              href="https://learn.techvision.edu.et/login"
               className="tv-nav-link"
               onClick={() => setMobile(false)}
             >
@@ -178,7 +135,7 @@ export function Navbar({ hideCourses = false }: { hideCourses?: boolean }) {
             </Link>
 
             <Link
-              href="/apply"
+              href="https://learn.techvision.edu.et/batch-application/new"
               onClick={() => setMobile(false)}
               className="w-fit rounded-md bg-[#00d38d] px-5 py-2.5 font-bold text-[#002333]"
             >

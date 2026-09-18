@@ -40,9 +40,6 @@ export function Faq() {
 
   return (
     <section id="faq" ref={ref} className="bg-[#050B08] py-20 px-6 relative overflow-hidden section-bridge-top">
-      {/* Background glow */}
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_right,rgba(178,255,89,0.03)_0%,transparent_60%)] pointer-events-none" />
-
       <motion.div style={{ y }} className="max-w-2xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
