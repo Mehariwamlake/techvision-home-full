@@ -44,13 +44,13 @@ export function LandingHero() {
           className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
           <Link
-            href="/signup"
+            href="https://learn.techvision.edu.et/login"
             className="flex min-w-48 items-center justify-center gap-2 bg-[#00d38d] px-7 py-4 text-sm font-semibold text-[#0b1510] transition-transform duration-200 hover:-translate-y-0.5"
           >
-            Start Learning Free <ArrowRight size={16} />
+            Start Learning <ArrowRight size={16} />
           </Link>
           <Link
-            href="/apply"
+            href="https://learn.techvision.edu.et/batch-application/new"
             className="flex min-w-48 items-center justify-center gap-2 border border-[#69736d] px-7 py-4 text-sm font-semibold transition-transform duration-200 hover:-translate-y-0.5"
           >
             <Play size={15} className="text-[#00d38d]" /> Apply For Next Batch
